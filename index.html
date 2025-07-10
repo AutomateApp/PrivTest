@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Przekierowanie...</title>
+  <script>
+    // Pobierz ID z adresu URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('ID');
 
+    // Jeśli ID istnieje, przekieruj do API
+    if (id) {
+      const targetUrl = `https://prod-23.northeurope.logic.azure.com/workflows/b2eb061b1cf34c72b98ce4db4df3ff93/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=svk9I-S1q4w9BB1a1Pee--wa508p868yasPLaoTQg2E&RODZAJ=test&naczepa=${encodeURIComponent(id)}`;
+      window.location.href = targetUrl;
+    } else {
+      document.write("<p>Błąd: brak parametru ID w adresie URL.</p>");
+    }
+  </script>
+</head>
+<body>
+  <p>Przekierowywanie...</p>
+</body>
+</html>
