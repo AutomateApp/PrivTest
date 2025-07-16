@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skanowanie Huby</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Wybierz datę</h1>
+    <input type="date" id="date-input"/>
+    <button id="load-btn">📦 Pokaż wysyłki</button>
+
+    <div id="shipments-section" class="hidden">
+      <h2>Lista wysyłek</h2>
+      <ul id="shipments"></ul>
+      <button id="scan-btn">📷 Zeskanuj SSCC</button>
+    </div>
+
+    <div id="scanner" class="hidden">
+      <h2>Skanuj kod SSCC</h2>
+      <div id="reader" style="width: 100%"></div>
+    </div>
+
+    <div id="details-section" class="hidden">
+      <h2>Szczegóły przesyłki</h2>
+      <p><strong>SSCC:</strong> <span id="selected-sscc"></span></p>
+      <p><strong>Klient:</strong> <span id="selected-client"></span></p>
+
+      <label for="status">Status:</label>
+      <select id="status">
+        <option value="przyjęto">Przyjęto</option>
+        <option value="uszkodzony">Uszkodzony</option>
+        <option value="oczekuje">Oczekuje</option>
+      </select>
+
+      <label for="photo">Dodaj zdjęcie:</label>
+      <input type="file" accept="image/*" id="photo"/>
+
+      <button id="save-btn">💾 Zapisz</button>
+    </div>
+  </div>
+  <script src="env.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

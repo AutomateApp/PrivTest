@@ -1,0 +1,40 @@
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+.container {
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+h1, h2 {
+  text-align: center;
+}
+input, button, select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  background: #eee;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+.status-przyjęto { background-color: #d4edda; }
+.status-uszkodzony { background-color: #f8d7da; }
+.status-oczekuje { background-color: #fff3cd; }
