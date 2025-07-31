@@ -8,38 +8,56 @@
   <script src="https://unpkg.com/html5-qrcode"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Wybierz datę</h1>
-    <input type="date" id="date-input"/>
-    <button id="load-btn">📦 Pokaż wysyłki</button>
+  <div id="login-section" class="container">
+    <h1>Logowanie</h1>
+    <input type="text" id="login-username" placeholder="Nazwa użytkownika" />
+    <input type="password" id="login-password" placeholder="Hasło" />
+    <button id="login-btn">Zaloguj</button>
+  </div>
 
-    <div id="shipments-section" class="hidden">
-      <h2>Lista wysyłek</h2>
-      <ul id="shipments"></ul>
-      <button id="scan-btn">📷 Zeskanuj SSCC</button>
+  <div id="app-section" class="hidden">
+    <div class="container">
+      <h1>Wybierz datę</h1>
+      <input type="date" id="date-input"/>
+      <button id="load-btn">📦 Pokaż wysyłki</button>
+
+      <div id="shipments-section" class="hidden">
+        <h2>Lista wysyłek</h2>
+        <ul id="shipments"></ul>
+        <button id="scan-btn">📷 Zeskanuj SSCC</button>
+      </div>
+
+      <div id="scanner" class="hidden">
+        <h2>Skanuj kod SSCC</h2>
+        <div id="reader" style="width: 100%"></div>
+      </div>
+
+      <div id="details-section" class="hidden">
+        <h2>Szczegóły przesyłki</h2>
+        <p><strong>SSCC:</strong> <span id="selected-sscc"></span></p>
+        <p><strong>Klient:</strong> <span id="selected-client"></span></p>
+
+        <label for="status">Status:</label>
+        <select id="status">
+          <option value="przyjęto">Przyjęto</option>
+          <option value="uszkodzony">Uszkodzony</option>
+          <option value="oczekuje">Oczekuje</option>
+        </select>
+
+        <label for="photo">Dodaj zdjęcie:</label>
+        <input type="file" accept="image/*" id="photo"/>
+
+        <button id="save-btn">💾 Zapisz</button>
+      </div>
     </div>
 
-    <div id="scanner" class="hidden">
-      <h2>Skanuj kod SSCC</h2>
-      <div id="reader" style="width: 100%"></div>
-    </div>
-
-    <div id="details-section" class="hidden">
-      <h2>Szczegóły przesyłki</h2>
-      <p><strong>SSCC:</strong> <span id="selected-sscc"></span></p>
-      <p><strong>Klient:</strong> <span id="selected-client"></span></p>
-
-      <label for="status">Status:</label>
-      <select id="status">
-        <option value="przyjęto">Przyjęto</option>
-        <option value="uszkodzony">Uszkodzony</option>
-        <option value="oczekuje">Oczekuje</option>
-      </select>
-
-      <label for="photo">Dodaj zdjęcie:</label>
-      <input type="file" accept="image/*" id="photo"/>
-
-      <button id="save-btn">💾 Zapisz</button>
+    <div id="user-management" class="container">
+      <h2>Użytkownicy</h2>
+      <ul id="user-list"></ul>
+      <input type="text" id="new-username" placeholder="Nazwa użytkownika" />
+      <input type="password" id="new-password" placeholder="Hasło" />
+      <button id="add-user-btn">Dodaj użytkownika</button>
+      <button id="logout-btn">Wyloguj</button>
     </div>
   </div>
   <script src="env.js"></script>
